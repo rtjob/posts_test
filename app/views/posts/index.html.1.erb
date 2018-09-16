@@ -52,12 +52,25 @@
               <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
                 outputoutputoutputoutputoutputout
               </div>
-              <% @posts.each do |post| %>
-                <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
-                  <%= post.contents %>
-                </div>
-              <% end %>
+
               <!--
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+              </p>
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+              </p>
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+              </p>
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+                </p>
+                <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+                </p>
+                
+                </div>
               -->
             </div>
     </div>
@@ -66,6 +79,16 @@
 <footer class="text-center text-muted py-4">
   Copyright YYYY dot.install
 </footer>
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contents</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
   <tbody>
     <% @posts.each do |post| %>
       <tr>
@@ -76,3 +99,8 @@
       </tr>
     <% end %>
   </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
