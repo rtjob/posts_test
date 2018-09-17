@@ -52,6 +52,11 @@
               <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
                 outputoutputoutputoutputoutputout
               </div>
+              <% @posts.each do |posts| %>
+                <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                  <%= posts.contents %>
+                </div>
+              <% end %>
               <!--
               -->
             </div>

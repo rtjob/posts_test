@@ -59,4 +59,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
-gem 'mongoid', '~> 6.0.0.rc0'
+#gem 'mongoid', '~> 6.0.0.rc0'
+
+group :development, :test, :production do
+  gem 'mongoid', '~> 6.0.0.rc0' #do ~ end内部に追加。他のgemは残してください。
+end
