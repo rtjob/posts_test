@@ -143,7 +143,10 @@ test:
         max_pool_size: 1
 
 production:
-  sessions:
+  clients:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+     uri: mongodb://heroku_2tjnzvqv:mul2r21svhj7g6e7tupdutbjv0@ds159772.mlab.com:59772/heroku_2tjnzvqv
+
+     options:
+       connect_timeout: 15
 
