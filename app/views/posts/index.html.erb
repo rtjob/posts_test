@@ -52,11 +52,6 @@
               <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
                 outputoutputoutputoutputoutputout
               </div>
-              <% @posts.each do |post| %>
-                <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
-                  <%= post.contents %>
-                </div>
-              <% end %>
               <!--
               -->
             </div>
@@ -64,15 +59,5 @@
   </section>
 </main>
 <footer class="text-center text-muted py-4">
-  Copyright YYYY dot.install
+  Copyright OOO
 </footer>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.contents %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
