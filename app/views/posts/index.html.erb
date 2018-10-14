@@ -1,61 +1,55 @@
-<p id="notice"><%= notice %></p>
+<%= render 'header' %>
 
-<header>
- <!-- <div class="container">
-    <div class="header-left">
-      <img class="logo" src="#">
-    </div>
-    <div class="header-right">
-      <div class="login">ログイン</div>
-    </div>
-  -->
-    <div class="container">
-      <!-- ヘッダのメニュー(ナビバー)指定(navbar-expandも使用する)
-      navbar-lightでグレー委する-->  
-        <nav class="navbar navbar-expand-sm navbar-light">
-          <!--navbar-brand サイズ補正-->
-            <a href="" class="navbar-brand">Logo</a>
-            <!-- navbar-toggleレスポンスナビ
-            PCブラウザの時隠すため data-toggle="collapse"
-            data-targetでレスポンスナビの中身指定
-            -->
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
-              <!-- navbar-toggle-iconハンバーガーメニューロゴ -->
-              <span class="navbar-toggle-icon"></span>
-            </button>
-            <div id="menu" class="collapse navbar-collapse">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a href="" class="nav-link">Link</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Link</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Link</a></li>
-              </ul>
-            </div>
-        </nav>
-    </div>
-</header>
-
-    <main>
+<main>
       <section class="bg-light text-center py-5">
         <div class="container">
+          <div class = "">
+            <p id="notice"><%= notice %></p>
+          </div>
           <div class="mb-5 row">
             <!--colを12分割で分ける-->
             <div class="col-sm-4">
                 <h3>input zone</h3>
-                <textarea class="px-2 w-100">inputinputinputinputinputinput</textarea>
-                <div class= "text-right">
-                  <a href="" class="btn btn-primary btn-sm w-60">tweet</a>
-                   
-                </div>
+                <%= form_tag("posts/create")do %>
+                   <input type="input" class="px-2 mb-2 w-100" name="createSubject" value="SubjectSubject">
+                   <textarea class="px-2 w-100" name="createContents">inputinputinputinputinputinput
+                   </textarea>
+                  <div class= "text-right">
+                   <input type="submit" class="btn btn-primary btn-sm w-60" value="post">
+                  </div>
+                <% end %>
             </div>
             <div class="col-sm-8">
               <h3>output zone</h3>
-              <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
-                outputoutputoutputoutputoutputout
-              </div>
               <% @posts.each do |posts| %>
-                <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
-                  <%= posts.contents %>
+                  <div class = "text-left">
+                    <h5>
+                      <%= posts.subject %>
+                    </h5>
+                  </div>
+                  <div class = "text-right">
+                    <% if posts.updated_at.nil? %>
+                      <%= posts.created_at %>
+                    <% else %>
+                      <%= posts.updated_at %>
+                    <% end %>
+                    
+  
+                  </div>
+                <div class = "shadow-sm p-1 mb-2 text-justify bg-white rounded">
+                  <div class = "row-md-2 row-md-1">
+                  </div>
+                  <div class = "row-md-8 ">
+                    <p class = "contents-size">
+                      <%= posts.contents %>
+                    </p>
+                  </div>
+                  <div class = "row-md-1 text-right">
+                    <%= link_to 'Edit', edit_post_path(posts) %>
+                    <%= link_to 'Destroy', posts, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
                 </div>
+
               <% end %>
               <!--
               -->
@@ -63,10 +57,10 @@
     </div>
   </section>
 </main>
-<footer class="text-center text-muted py-4">
-  Copyright OOO
-</footer>
 
+<%= render 'footer' %>
+
+<!--
 <table>
   <thead>
     <tr>
@@ -79,11 +73,10 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.contents %></td>
-        <!--
+        
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        -->
+        <td></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -92,3 +85,4 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+-->

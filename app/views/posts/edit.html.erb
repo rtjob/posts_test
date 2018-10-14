@@ -1,6 +1,17 @@
-<h1>Editing Post</h1>
+<%= render 'header' %>
 
-<%= render 'form', post: @post %>
+<main>
+  <section class="bg-light text-center py-5">
+    <div class="container">
+      <div class="mb-5">
+        <h1 class="text-left">
+            Editing Post
+        </h1>
+        <%= render 'form', post: @post %>
+        <%= link_to 'Back', posts_path %>
+      </div>
+    </div>
+  </section>
+</main>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= render 'footer' %>

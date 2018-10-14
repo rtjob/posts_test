@@ -19,22 +19,34 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    #url値取得
+    @id = params[:id]
+    logger.debug("@id =" + @id)
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+
+    #rootページにredirect
+    redirect_to("")
+
+    # フォームから送信されたデータを受け取り、保存する
+    @post = Post.new(subject: params[:createSubject], contents: params[:createContents])
+    @post.save
+
+    # @post = Post.new(post_params)
+
+    # respond_to do |format|
+    #   if @post.save
+    #     format.html { redirect_to @post, notice: 'Post was successfully created.' }
+    #     format.json { render :show, status: :created, location: @post }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @post.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /posts/1
@@ -43,7 +55,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+        format.html { render :index }
+        format.json { render :index, status: :ok, location: @post }
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }

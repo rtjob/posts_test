@@ -1,0 +1,60 @@
+2018-10-14T14:11:27.463+0900 I CONTROL  [initandlisten] MongoDB starting : pid=14886 port=27017 dbpath=/Users/owner/Documents/ruby/posts_test/mongodb/db 64-bit host=owner-no-MacBook-Air1.local
+2018-10-14T14:11:27.465+0900 I CONTROL  [initandlisten] db version v4.0.2
+2018-10-14T14:11:27.466+0900 I CONTROL  [initandlisten] git version: fc1573ba18aee42f97a3bb13b67af7d837826b47
+2018-10-14T14:11:27.466+0900 I CONTROL  [initandlisten] allocator: system
+2018-10-14T14:11:27.467+0900 I CONTROL  [initandlisten] modules: none
+2018-10-14T14:11:27.468+0900 I CONTROL  [initandlisten] build environment:
+2018-10-14T14:11:27.469+0900 I CONTROL  [initandlisten]     distarch: x86_64
+2018-10-14T14:11:27.470+0900 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-10-14T14:11:27.471+0900 I CONTROL  [initandlisten] options: { processManagement: { fork: true }, storage: { dbPath: "mongodb/db", journal: { enabled: false }, mmapv1: { preallocDataFiles: false } }, systemLog: { destination: "file", path: "mongodb/log/mongodb.log" } }
+2018-10-14T14:11:27.472+0900 I STORAGE  [initandlisten] Detected data files in /Users/owner/Documents/ruby/posts_test/mongodb/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-10-14T14:11:27.473+0900 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3584M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2018-10-14T14:11:28.161+0900 I STORAGE  [initandlisten] WiredTiger message [1539493888:161442][14886:0x1151665c0], txn-recover: Set global recovery timestamp: 0
+2018-10-14T14:11:28.335+0900 I RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2018-10-14T14:11:28.429+0900 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2018-10-14T14:11:28.431+0900 I CONTROL  [initandlisten] 
+2018-10-14T14:11:28.434+0900 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-10-14T14:11:28.436+0900 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-10-14T14:11:28.439+0900 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2018-10-14T14:11:28.441+0900 I CONTROL  [initandlisten] 
+2018-10-14T14:11:28.442+0900 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2018-10-14T14:11:28.444+0900 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2018-10-14T14:11:28.445+0900 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2018-10-14T14:11:28.446+0900 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2018-10-14T14:11:28.448+0900 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2018-10-14T14:11:28.449+0900 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2018-10-14T14:11:28.450+0900 I CONTROL  [initandlisten] 
+2018-10-14T14:11:28.452+0900 I CONTROL  [initandlisten] 
+2018-10-14T14:11:28.453+0900 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+2018-10-14T14:11:28.490+0900 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/Users/owner/Documents/ruby/posts_test/mongodb/db/diagnostic.data'
+2018-10-14T14:11:28.497+0900 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-10-14T14:17:17.533+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:51070 #1 (1 connection now open)
+2018-10-14T14:17:17.962+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:51071 #2 (2 connections now open)
+2018-10-14T14:17:17.964+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:51072 #3 (2 connections now open)
+2018-10-14T14:17:17.964+0900 I NETWORK  [conn2] end connection 127.0.0.1:51071 (1 connection now open)
+2018-10-14T14:17:17.966+0900 I NETWORK  [conn3] received client metadata from 127.0.0.1:51072 conn3: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T14:17:17.973+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:51073 #4 (3 connections now open)
+2018-10-14T14:17:17.975+0900 I NETWORK  [conn4] received client metadata from 127.0.0.1:51073 conn4: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T14:42:32.050+0900 I NETWORK  [conn1] end connection 127.0.0.1:51070 (2 connections now open)
+2018-10-14T14:51:50.501+0900 I NETWORK  [conn4] end connection 127.0.0.1:51073 (1 connection now open)
+2018-10-14T14:51:50.501+0900 I NETWORK  [conn3] end connection 127.0.0.1:51072 (0 connections now open)
+2018-10-14T14:52:05.922+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:52181 #5 (1 connection now open)
+2018-10-14T14:52:05.924+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:52182 #6 (1 connection now open)
+2018-10-14T14:52:05.924+0900 I NETWORK  [conn5] end connection 127.0.0.1:52181 (0 connections now open)
+2018-10-14T14:52:05.926+0900 I NETWORK  [conn6] received client metadata from 127.0.0.1:52182 conn6: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T14:52:05.933+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:52183 #7 (2 connections now open)
+2018-10-14T14:52:05.934+0900 I NETWORK  [conn7] received client metadata from 127.0.0.1:52183 conn7: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T15:00:01.426+0900 I NETWORK  [conn7] end connection 127.0.0.1:52183 (1 connection now open)
+2018-10-14T15:00:01.426+0900 I NETWORK  [conn6] end connection 127.0.0.1:52182 (0 connections now open)
+2018-10-14T15:00:51.877+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:54320 #8 (1 connection now open)
+2018-10-14T15:00:51.881+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:54321 #9 (2 connections now open)
+2018-10-14T15:00:51.883+0900 I NETWORK  [conn8] end connection 127.0.0.1:54320 (1 connection now open)
+2018-10-14T15:00:51.890+0900 I NETWORK  [conn9] received client metadata from 127.0.0.1:54321 conn9: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T15:00:51.906+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:54322 #10 (2 connections now open)
+2018-10-14T15:00:51.907+0900 I NETWORK  [conn10] received client metadata from 127.0.0.1:54322 conn10: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T15:23:18.086+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:59718 #11 (3 connections now open)
+2018-10-14T15:23:18.090+0900 I NETWORK  [conn11] received client metadata from 127.0.0.1:59718 conn11: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.2" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2018-10-14T15:45:28.695+0900 I STORAGE  [conn11] createCollection: posts_test_test.posts with generated UUID: 23500505-4710-46e0-b73e-891735c17167
+2018-10-14T15:45:28.878+0900 I COMMAND  [conn11] command posts_test_test.posts appName: "MongoDB Shell" command: insert { insert: "posts", ordered: true, lsid: { id: UUID("7f86b292-13d1-46aa-8224-7b4febe67dc3") }, $db: "posts_test_test" } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 184ms
+2018-10-14T15:45:54.628+0900 I STORAGE  [conn10] createCollection: posts_test_development.posts with generated UUID: d9f68239-bd01-48b6-a966-1f933dee7672
+2018-10-14T15:45:54.822+0900 I COMMAND  [conn10] command posts_test_development.posts command: insert { insert: "posts", $db: "posts_test_development", ordered: true, lsid: { id: UUID("110a2a8f-041a-4b43-85df-040b301c84ba") } } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 194ms
