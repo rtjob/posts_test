@@ -58,3 +58,55 @@
 2018-10-14T15:45:28.878+0900 I COMMAND  [conn11] command posts_test_test.posts appName: "MongoDB Shell" command: insert { insert: "posts", ordered: true, lsid: { id: UUID("7f86b292-13d1-46aa-8224-7b4febe67dc3") }, $db: "posts_test_test" } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 184ms
 2018-10-14T15:45:54.628+0900 I STORAGE  [conn10] createCollection: posts_test_development.posts with generated UUID: d9f68239-bd01-48b6-a966-1f933dee7672
 2018-10-14T15:45:54.822+0900 I COMMAND  [conn10] command posts_test_development.posts command: insert { insert: "posts", $db: "posts_test_development", ordered: true, lsid: { id: UUID("110a2a8f-041a-4b43-85df-040b301c84ba") } } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 194ms
+2018-10-14T16:17:08.541+0900 I NETWORK  [conn10] end connection 127.0.0.1:54322 (2 connections now open)
+2018-10-14T16:17:08.541+0900 I NETWORK  [conn9] end connection 127.0.0.1:54321 (1 connection now open)
+2018-10-14T16:43:56.382+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63060 #12 (2 connections now open)
+2018-10-14T16:43:56.386+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63061 #13 (2 connections now open)
+2018-10-14T16:43:56.386+0900 I NETWORK  [conn12] end connection 127.0.0.1:63060 (1 connection now open)
+2018-10-14T16:43:56.388+0900 I NETWORK  [conn13] received client metadata from 127.0.0.1:63061 conn13: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T16:43:56.394+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63062 #14 (3 connections now open)
+2018-10-14T16:43:56.396+0900 I NETWORK  [conn14] received client metadata from 127.0.0.1:63062 conn14: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T17:03:41.036+0900 I NETWORK  [conn14] end connection 127.0.0.1:63062 (2 connections now open)
+2018-10-14T17:03:41.036+0900 I NETWORK  [conn13] end connection 127.0.0.1:63061 (1 connection now open)
+2018-10-14T17:04:04.225+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63703 #15 (2 connections now open)
+2018-10-14T17:04:04.229+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63704 #16 (3 connections now open)
+2018-10-14T17:04:04.229+0900 I NETWORK  [conn15] end connection 127.0.0.1:63703 (2 connections now open)
+2018-10-14T17:04:04.232+0900 I NETWORK  [conn16] received client metadata from 127.0.0.1:63704 conn16: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T17:04:04.244+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63705 #17 (3 connections now open)
+2018-10-14T17:04:04.246+0900 I NETWORK  [conn17] received client metadata from 127.0.0.1:63705 conn17: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T17:08:19.237+0900 I NETWORK  [conn17] end connection 127.0.0.1:63705 (2 connections now open)
+2018-10-14T17:08:19.237+0900 I NETWORK  [conn16] end connection 127.0.0.1:63704 (1 connection now open)
+2018-10-14T17:09:04.311+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63743 #18 (2 connections now open)
+2018-10-14T17:09:04.312+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63744 #19 (2 connections now open)
+2018-10-14T17:09:04.312+0900 I NETWORK  [conn18] end connection 127.0.0.1:63743 (1 connection now open)
+2018-10-14T17:09:04.314+0900 I NETWORK  [conn19] received client metadata from 127.0.0.1:63744 conn19: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-14T17:09:04.321+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:63745 #20 (3 connections now open)
+2018-10-14T17:09:04.323+0900 I NETWORK  [conn20] received client metadata from 127.0.0.1:63745 conn20: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-17T01:31:00.952+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:64873 #21 (4 connections now open)
+2018-10-17T01:31:00.971+0900 I NETWORK  [conn21] received client metadata from 127.0.0.1:64873 conn21: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.2" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2018-10-17T01:41:06.555+0900 I STORAGE  [conn21] createCollection: posts_test_development.user with generated UUID: 9e40bf98-f411-4a28-adc2-147cb68e20aa
+2018-10-17T01:41:06.800+0900 I COMMAND  [conn21] command posts_test_development.user appName: "MongoDB Shell" command: insert { insert: "user", ordered: true, lsid: { id: UUID("ae50e438-7b54-47e7-9759-798f6fb8b71a") }, $db: "posts_test_development" } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 247ms
+2018-10-21T19:13:34.785+0900 I STORAGE  [conn21] createCollection: posts_test_test.user with generated UUID: 8f98c1bd-bdfa-435e-8427-9c8b16f3c9e5
+2018-10-21T19:13:35.004+0900 I COMMAND  [conn21] command posts_test_test.user appName: "MongoDB Shell" command: insert { insert: "user", ordered: true, lsid: { id: UUID("ae50e438-7b54-47e7-9759-798f6fb8b71a") }, $db: "posts_test_test" } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 218ms
+2018-10-21T19:21:13.135+0900 I STORAGE  [conn21] createCollection: posts_test_development.users with generated UUID: f38fbe82-6cb5-4419-9678-8dd3d35f82b7
+2018-10-21T19:21:13.351+0900 I COMMAND  [conn21] command posts_test_development.users appName: "MongoDB Shell" command: insert { insert: "users", ordered: true, lsid: { id: UUID("ae50e438-7b54-47e7-9759-798f6fb8b71a") }, $db: "posts_test_development" } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 216ms
+2018-10-21T19:22:12.888+0900 I NETWORK  [conn21] end connection 127.0.0.1:64873 (3 connections now open)
+2018-10-21T19:30:06.414+0900 I COMMAND  [conn11] CMD: drop posts_test_development.user
+2018-10-21T19:30:06.420+0900 I STORAGE  [conn11] Finishing collection drop for posts_test_development.user (9e40bf98-f411-4a28-adc2-147cb68e20aa).
+2018-10-21T19:30:06.571+0900 I COMMAND  [conn11] command posts_test_development.user appName: "MongoDB Shell" command: drop { drop: "user", lsid: { id: UUID("7f86b292-13d1-46aa-8224-7b4febe67dc3") }, $db: "posts_test_development" } numYields:0 reslen:91 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } } } protocol:op_msg 157ms
+2018-10-21T19:31:23.838+0900 I STORAGE  [conn11] createCollection: posts_test_development.user with generated UUID: d840a491-1b5c-49ad-a26c-73a728d052f0
+2018-10-21T19:31:24.062+0900 I COMMAND  [conn11] command posts_test_development.user appName: "MongoDB Shell" command: insert { insert: "user", ordered: true, lsid: { id: UUID("7f86b292-13d1-46aa-8224-7b4febe67dc3") }, $db: "posts_test_development" } ninserted:1 keysInserted:1 numYields:0 reslen:45 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_msg 223ms
+2018-10-21T19:31:46.832+0900 I COMMAND  [conn11] CMD: drop posts_test_development.user
+2018-10-21T19:31:46.835+0900 I STORAGE  [conn11] Finishing collection drop for posts_test_development.user (d840a491-1b5c-49ad-a26c-73a728d052f0).
+2018-10-21T19:31:46.953+0900 I COMMAND  [conn11] command posts_test_development.user appName: "MongoDB Shell" command: drop { drop: "user", lsid: { id: UUID("7f86b292-13d1-46aa-8224-7b4febe67dc3") }, $db: "posts_test_development" } numYields:0 reslen:91 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } } } protocol:op_msg 120ms
+2018-10-26T01:26:59.763+0900 I NETWORK  [conn20] end connection 127.0.0.1:63745 (2 connections now open)
+2018-10-26T01:26:59.763+0900 I NETWORK  [conn19] end connection 127.0.0.1:63744 (1 connection now open)
+2018-10-26T01:27:13.883+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:54391 #22 (2 connections now open)
+2018-10-26T01:27:13.885+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:54392 #23 (3 connections now open)
+2018-10-26T01:27:13.886+0900 I NETWORK  [conn23] received client metadata from 127.0.0.1:54392 conn23: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-26T01:27:13.887+0900 I NETWORK  [conn22] end connection 127.0.0.1:54391 (2 connections now open)
+2018-10-26T01:27:13.891+0900 I NETWORK  [listener] connection accepted from 127.0.0.1:54393 #24 (3 connections now open)
+2018-10-26T01:27:13.892+0900 I NETWORK  [conn24] received client metadata from 127.0.0.1:54393 conn24: { driver: { name: "mongo-ruby-driver", version: "2.6.2" }, os: { type: "darwin", name: "darwin17.7.0", architecture: "x86_64" }, platform: "2.5.1, x86_64-darwin17, x86_64-apple-darwin17.7.0" }
+2018-10-27T20:40:56.198+0900 I NETWORK  [conn24] end connection 127.0.0.1:54393 (2 connections now open)
+2018-10-27T20:40:56.198+0900 I NETWORK  [conn23] end connection 127.0.0.1:54392 (1 connection now open)
+2018-10-27T20:41:00.466+0900 I NETWORK  [conn11] end connection 127.0.0.1:59718 (0 connections now open)

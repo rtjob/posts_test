@@ -1,0 +1,29 @@
+<%= render 'posts/header' %>
+
+<main>
+    <section class="bg-light text-center py-5">
+        <h4 class="">ユーザー一覧</h4>
+        <table class="table py-3 center-block">
+            <% @users.each do |user| %>
+                <tr class ="text-center row mb-2 rounded shadow-sm">
+                    <div class = "row-md-10">
+                        <th class="col-sm-4">
+                            <%= link_to(user.name,"/user/#{user.id}")%>
+                        </th>
+                        <th class="col-sm-8">
+                            <%= link_to(user.email,"/user/#{user.id}")%>                        
+                        </th>
+                    </div>
+                    <!--
+                    <div class = "row-md-2">
+                        <%= link_to 'Edit', edit_post_path(posts) %>
+                        <%= link_to 'Destroy', posts, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </div>
+                    -->
+                </tr>
+            <% end %>
+        </table>
+    </section>
+</main>
+
+<%= render 'posts/footer' %>

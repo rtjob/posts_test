@@ -1,0 +1,17 @@
+<%= render 'posts/header' %>
+
+<main>
+    <section class="bg-light text-center py-5">
+        <h3 class="">ユーザー詳細</h4>
+                <div class ="text-center mb-2 rounded shadow-sm">
+                    <h4 class = "">    
+                        <%= @users.name%>
+                    </h4>
+                    <p>
+                        <%= @users.email%>
+                    </p>
+                </div>
+    </section>
+</main>
+
+<%= render 'posts/footer' %>

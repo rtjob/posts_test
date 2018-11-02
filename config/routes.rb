@@ -5,4 +5,12 @@ Rails.application.routes.draw do
   get "posts/index" => "posts#index"
   get "posts/:id/edit" => "posts#edit"
   post "posts/create" => "posts#create"
+
+  post "user/create" => "user#userCreate"
+  get "user/signup" => "user#userSignUp"
+  get "user/userList" => "user#userList"
+  get "user/:id" => "user#userDetail"
+
+
+
 end

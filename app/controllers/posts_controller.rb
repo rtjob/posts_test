@@ -4,7 +4,22 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+
+    #date値取得
+    # @date = lambda{
+    #   if unless @post.blank?
+
+    #   else
+
+    #   end
+
+    # }
+    # logger.debug("@date =" + @date)
     @posts = Post.all
+    logger.debug("@posts=" + @posts.inspect)
+    @posts.each do |post|
+      logger.debug("post.subject=" + post.subject.inspect)
+
   end
 
   # GET /posts/1
@@ -15,6 +30,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+
+    end
   end
 
   # GET /posts/1/edit
@@ -83,5 +100,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:contents)
+    end
+
+    def update_date
+      
     end
 end

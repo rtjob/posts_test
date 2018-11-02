@@ -1,0 +1,24 @@
+<%= render 'posts/header' %>
+
+<main>
+    <section class="bg-light text-center py-5">
+        <h4 class="">ユーザー登録</h4>
+        <div class ="text-center mb-2 rounded shadow-sm">
+            <%= form_tag("/user/create") do%>
+                <p class ="">
+                    名前
+                </p>
+                <input class="" name = "userName">
+                <p class ="">
+                    Eメール
+                </p>
+                <input class="" name = "userEmail">
+                <div class= "ml-auto p-2">
+                    <input type="submit" class="btn btn-primary btn-sm w-60" value="登録">
+                </div>
+            <% end %>
+        </div>
+    </section>
+</main>
+
+<%= render 'posts/footer' %>
