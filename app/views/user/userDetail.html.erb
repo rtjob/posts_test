@@ -2,15 +2,18 @@
 
 <main>
     <section class="bg-light text-center py-5">
-        <h3 class="">ユーザー詳細</h4>
+        <%=flash[:notice]  %>
+        <h3 class="">ユーザー詳細</h3>
                 <div class ="text-center mb-2 rounded shadow-sm">
-                    <h4 class = "">    
+                    <p class = "">
+                        ユーザ名:
                         <%= @users.name%>
-                    </h4>
-                    <p>
+                        <br>
+                        メール:
                         <%= @users.email%>
                     </p>
                 </div>
+                <%= link_to("userListへ", "/user/userList") %>
     </section>
 </main>
 

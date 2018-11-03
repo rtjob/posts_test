@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get "user/signup" => "user#userSignUp"
   get "user/userList" => "user#userList"
   get "user/:id" => "user#userDetail"
-
+  post "user/:id/userEdit" => "user#userEdit"
+  post "user/:id/userUpdate" => "user#userUpdate"
 
 
 end

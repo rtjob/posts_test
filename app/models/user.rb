@@ -5,7 +5,7 @@ class User
   field :email, type: String
 
     # nameカラムに関するバリデーション
-  validates :name,{presence: true}
+  validates :name,{presence: true, uniqueness: true}
   
   # emailカラムに関するバリデーション
   validates :email,{presence: true, uniqueness: true}
