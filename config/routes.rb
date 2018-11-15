@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get "user/:id" => "user#userDetail"
   post "user/:id/userEdit" => "user#userEdit"
   post "user/:id/userUpdate" => "user#userUpdate"
-
+  post "user/:id/userDestroy" => "user#userDestroy"
 
 end

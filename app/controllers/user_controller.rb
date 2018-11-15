@@ -41,4 +41,14 @@ class UserController < ApplicationController
             render("/user/#{@user.id}/userEdit")        
         end
     end
+
+    def userDestroy
+        @user = User.find_by(id: params[:id])   
+        if @user.destroy
+            flash[:notice] = "削除しました"
+            redirect_to("/user/userList")            
+        else
+            render("/user/userList")        
+        end
+  end
 end

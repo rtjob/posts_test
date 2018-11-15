@@ -19,12 +19,17 @@
             -->
             <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
               <!-- navbar-toggle-iconハンバーガーメニューロゴ -->
-              <span class="navbar-toggle-icon"></span>
+              <%= link_to("/posts/index")do%>
+                <span class="navbar-toggle-icon"></span>
+              <% end %>
             </button>
             <div id="menu" class="collapse navbar-collapse">
               <ul class="navbar-nav">
                 <li class="nav-item nav-link">
                   <%= link_to("新規登録","/user/signup")%> 
+                </li>
+                <li class="nav-item nav-link">
+                  <%= link_to("ユーザ一覧","/user/userList")%> 
                 </li>
                 <li class="nav-item"><a href="" class="nav-link">Link</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Link</a></li>

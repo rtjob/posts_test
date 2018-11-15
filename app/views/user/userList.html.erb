@@ -2,10 +2,11 @@
 
 <main>
     <section class="bg-light text-center py-5">
+        <%=flash[:notice]  %>
         <h4 class="">ユーザー一覧</h4>
         <table class="table py-3 center-block">
             <% @users.each do |user| %>
-                <tr class ="text-center row mb-2 rounded shadow-sm">
+                <tr class ="text-center row m-2 rounded shadow-sm">
                     <div class = "row-md-10">
                         <th class="col-sm-4">
                             <%= link_to(user.name,"/user/#{user.id}")%>
@@ -13,9 +14,14 @@
                         <th class="col-sm-6">
                             <%= link_to(user.email,"/user/#{user.id}")%>                        
                         </th>
-                        <th class="col-sm-2">
+                        <th class="col-sm-1">
                             <%= form_tag("/user/#{user.id}/userEdit") do %>
                                 <input type="submit" class="btn btn-primary btn-sm w-60" value="edit">
+                            <% end %>
+                        </th>
+                        <th class="col-sm-1">
+                            <%= form_tag("/user/#{user.id}/userDestroy") do %>
+                                <input type="submit" class="btn btn-danger btn-sm w-60" value="delete">
                             <% end %>
                         </th>                        
                     </div>
