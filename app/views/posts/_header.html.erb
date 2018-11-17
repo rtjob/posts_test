@@ -12,16 +12,16 @@
       navbar-lightでグレー委する-->  
         <nav class="navbar navbar-expand-sm navbar-light">
           <!--navbar-brand サイズ補正-->
-            <a href="" class="navbar-brand">Logo</a>
-            <!-- navbar-toggleレスポンスナビ
-            PCブラウザの時隠すため data-toggle="collapse"
-            data-targetでレスポンスナビの中身指定
-            -->
+            <%= link_to("/")do%>
+              <span class="navbar-brand">Logo</span>
+              <!-- navbar-toggleレスポンスナビ
+              PCブラウザの時隠すため data-toggle="collapse"
+              data-targetでレスポンスナビの中身指定
+              -->
+            <% end %>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
               <!-- navbar-toggle-iconハンバーガーメニューロゴ -->
-              <%= link_to("/posts/index")do%>
                 <span class="navbar-toggle-icon"></span>
-              <% end %>
             </button>
             <div id="menu" class="collapse navbar-collapse">
               <ul class="navbar-nav">
