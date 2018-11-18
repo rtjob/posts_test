@@ -11,11 +11,15 @@
         </div>
         <h4 class="">ユーザー登録</h4>  
         <div class ="text-center mb-2 rounded shadow-sm bg-light">
-            <%= form_tag("/user/#{@user.id}/userUpdate") do %>
-                <p class ="">名前</p>
-                <input class="" name = "name" value="<%= @user.name %>">
+            <%= form_tag("/user/#{@user.id}/userUpdate", {multipart: true}) do %>
+                <p class ="">画像</p>
+                    <input name="image" type="file">
+                <p class ="">ユーザー名</p>
+                    <input class="" name = "name" value="<%= @user.name %>">
                 <p class ="">Eメール</p>
-                <input class="" name = "email" value="<%= @user.email %>">
+                    <input class="" name = "email" value="<%= @user.email %>">
+                <p class ="">パスワード</p>
+                    <input class="" name = "password" value="<%= @user.password %>">
                 <div class= "ml-auto p-2">
                     <input type="submit" class="btn btn-primary btn-sm w-60" value="確定">
                 </div>

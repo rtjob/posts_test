@@ -4,18 +4,20 @@
     <section class="text-center py-5">
          <div class="bg-orange">
             <% @user.errors.full_messages.each do |message| %>
-                <div class="text-danger">
+                <div class="bg-orange text-danger">
                     <%= message %>
                 </div>
             <% end %>
         </div>
         <h4 class="">ユーザー登録</h4>  
-        <div class ="text-center mb-2 rounded shadow-sm bg-light">
+        <div class ="text-center rounded shadow-sm bg-light">
             <%= form_tag("/user/create") do%>
-                    <p class ="">名前</p>
-                    <input class="" name = "name">
-                    <p class ="">Eメール</p>
-                    <input class="" name = "email">
+                    <p class ="mb-1">名前</p>
+                    <input class="mb-3" name = "name">
+                    <p class ="mb-1">Eメール</p>
+                    <input class="mb-3" name = "email">
+                    <p class ="mb-1">パスワード</p>
+                    <input class="mb-3" name = "password">
                     <div class= "ml-auto p-2">
                         <input type="submit" class="btn btn-primary btn-sm w-60" value="登録">
                      </div>

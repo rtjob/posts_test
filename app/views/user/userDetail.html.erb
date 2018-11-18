@@ -2,9 +2,12 @@
 
 <main>
     <section class="bg-light text-center py-5">
-        <%=flash[:notice]  %>
+        <p class ="text-success">
+            <%=flash[:notice]  %>
+        </p>
         <h3 class="">ユーザー詳細</h3>
                 <div class ="text-center mb-2 rounded shadow-sm">
+                    <img class = "" src = "<%= "/user_images/#{@users.userImage}" %>">
                     <p class = "">
                         ユーザ名:
                         <%= @users.name%>
@@ -12,20 +15,21 @@
                         メール:
                         <%= @users.email%>
                     </p>
-
-                    <div style="text-align:center;">
+                    <div class ="text-center">
                          <div class="btn-group"  role="group">
                             <%= form_tag("/user/#{ @users.id}/userEdit") do %>
-                             <input type="submit" class="btn btn-primary btn-sm w-60" value="edit">
+                             <input type="submit" class="btn btn-primary btn-sm w-60 m-md-3" value="edit">
                             <% end %>
                          <%= form_tag("/user/#{ @users.id}/userDestroy") do %>
-                             <input type="submit" class="btn btn-danger btn-sm w-60" value="delete">
+                             <input type="submit" class="btn btn-danger btn-sm w-60 m-md-3" value="delete">
                          <% end %>                    
 
                          </div>
                     </div>
                 </div>
                 <%= link_to("userListへ", "/user/userList") %>
+                <br>
+                <%= link_to("投稿一覧へ", "/posts/index") %>
     </section>
 </main>
 

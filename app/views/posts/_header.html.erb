@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-sm navbar-light">
           <!--navbar-brand サイズ補正-->
             <%= link_to("/")do%>
-              <span class="navbar-brand">投稿一覧</span>
+              <span class="navbar-brand">トップ画面</span>
               <!-- navbar-toggleレスポンスナビ
               PCブラウザの時隠すため data-toggle="collapse"
               data-targetでレスポンスナビの中身指定
@@ -27,6 +27,9 @@
               <ul class="navbar-nav">
                 <%= link_to("/user/signup")do %>
                   <li class="nav-item nav-link">ユーザ登録</li>
+                <% end %>
+                <%= link_to("/posts/index")do %>
+                  <li class="nav-item nav-link">投稿一覧</li>
                 <% end %>
                 <%= link_to("/user/userList")do %>
                   <li class="nav-item nav-link">ユーザ一覧</li>

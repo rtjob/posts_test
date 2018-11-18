@@ -3,6 +3,11 @@
 <main>
       <section class="bg-light text-center py-5">
         <div class="container">
+          <% if @errorMessage %>
+            <p class="bg-orange text-danger">
+              <%= @errorMessage %>
+            </p>
+          <% end %>
           <div class = "">
             <p id="notice"><%= notice %></p>
           </div>
@@ -10,12 +15,12 @@
             <!--colを12分割で分ける-->
             <div class="col-sm-4">
                 <h3>input zone</h3>
-                <%= form_tag("posts/create")do %>
+                <%= form_tag("/posts/create")do %>
                    <input type="input" class="px-2 mb-2 w-100" name="createSubject" value="SubjectSubject">
                    <textarea class="px-2 w-100" name="createContents">inputinputinputinputinputinput
                    </textarea>
                   <div class= "text-right">
-                   <input type="submit" class="btn btn-primary btn-sm w-60" value="post">
+                   <input type="submit" class="btn btn-primary btn-sm w-60" value="投稿">
                   </div>
                 <% end %>
             </div>
@@ -48,8 +53,10 @@
                     <% else %>
                       <%= posts.updated_at.strftime("%H:%M")%>
                     <% end %>
+                    <!-- todo
                     <%= link_to 'Edit', edit_post_path(posts) %>
                     <%= link_to 'Destroy', posts, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    -->
                   </div>
                 </div>
 
@@ -62,30 +69,3 @@
 </main>
 
 <%= render 'footer' %>
-
-<!--
-<table>
-  <thead>
-    <tr>
-      <th>Contents</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.contents %></td>
-        
-        <td><%= link_to 'Show', post %></td>
-        <td></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
--->

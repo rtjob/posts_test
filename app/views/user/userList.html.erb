@@ -8,7 +8,12 @@
             <% @users.each do |user| %>
                 <tr class ="text-center row m-2 rounded shadow-sm">
                     <div class = "row-md-10">
-                        <th class="col-sm-4">
+                        <th class="col-sm-1">
+                            <%= link_to("/user/#{user.id}")do %>
+                                <img class = "" src = "<%= "/user_images/#{user.userImage}" %>">
+                            <% end %>
+                        </th>
+                        <th class="col-sm-3">
                             <%= link_to(user.name,"/user/#{user.id}")%>
                         </th>
                         <th class="col-sm-6">

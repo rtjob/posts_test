@@ -179,5 +179,11 @@ File.binwriteで指定場所に書き込みできる
 
 
 
+## コントローラ作成
+'''
+rails generate controller コントローラ名
+'''
+
+
 
 
