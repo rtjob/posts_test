@@ -1,5 +1,3 @@
-<%= render 'header' %>
-
 <main>
       <section class="bg-light text-center py-5">
         <div class="container">
@@ -17,10 +15,10 @@
                 <h3>input zone</h3>
                 <%= form_tag("/posts/create")do %>
                    <input type="input" class="px-2 mb-2 w-100" name="createSubject" value="SubjectSubject">
-                   <textarea class="px-2 w-100" name="createContents">inputinputinputinputinputinput
+                   <textarea rows ="5" class="px-2 w-100" name="createContents">inputinputinputinputinputinput
                    </textarea>
                   <div class= "text-right">
-                   <input type="submit" class="btn btn-primary btn-sm w-60" value="投稿">
+                   <input type="submit" class="btn btn-success btn-sm w-60" value="投稿">
                   </div>
                 <% end %>
             </div>
@@ -53,10 +51,15 @@
                     <% else %>
                       <%= posts.updated_at.strftime("%H:%M")%>
                     <% end %>
-                    <!-- todo
-                    <%= link_to 'Edit', edit_post_path(posts) %>
-                    <%= link_to 'Destroy', posts, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    -->
+                      <%= link_to("/posts/#{posts.id}/edit") do%>
+                        <input type="submit" class="btn btn-primary btn-sm w-60" value="編集">
+                      <% end %>
+                      <!--
+                        <%= link_to("/posts/#{posts.id}/destroy",{method:"post"}, data: { confirm: 'Are you sure?' }) do%>
+                          <input type="submit" class="btn btn-danger btn-sm w-60" value="削除">
+                        <% end %>
+                      -->
+                      <%= link_to '削除', posts, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
                   </div>
                 </div>
 
@@ -67,5 +70,3 @@
     </div>
   </section>
 </main>
-
-<%= render 'footer' %>

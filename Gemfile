@@ -65,6 +65,10 @@ gem 'jquery-rails'
 #画像リサイズ用
 gem 'mini_magick'
 
+# debug用Gem
+gem 'ruby-debug-ide'
+gem 'debase'
+
 group :development, :test, :production do
   gem 'mongoid', '~> 6.0.0.rc0' #do ~ end内部に追加。他のgemは残してください。
 end

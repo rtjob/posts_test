@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   get "/posts/index" => "posts#index"
   post "/posts/index" => "posts#index"
   get "/posts/:id/edit" => "posts#edit"
-  post "/posts/update" => "posts#update"
+  post "/posts/:id/update" => "posts#update"
+  post "/posts/:id/destroy" => "posts#destroy"
   
   # user系
   post "/user/login" => "user#userLogin"
+  post "/user/logout" => "user#userLogout"
   post "/user/create" => "user#userCreate"
   get "/user/signup" => "user#userSignUp"
   get "/user/userList" => "user#userList"

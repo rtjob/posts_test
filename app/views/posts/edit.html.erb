@@ -1,19 +1,22 @@
-<%= render 'header' %>
-
 <main>
   <section class="bg-light text-center py-5">
     <h1 class="">投稿編集</h1>
-      <%= form_tag("/posts/update")do %>
+      <%= form_tag("/posts/#{@post.id}/update") do %>
         <p class="">表題</p>
           <input type="input" class="px-2 mb-2 w-50" name="createSubject" value="<%= @post.subject %>">
         <p class="">コンテンツ </p>
-        <textarea class="px-2 w-50" name="createContents">
+        <textarea rows="7" class="w-50" name="createContents">
           <%= @post.contents %>
         </textarea>
-        <input type="submit" class="btn btn-primary btn-sm w-60" value="更新">
+        </br>
+        <input type="submit" class="btn btn-success btn-sm w-60" value="更新">
       <% end %>
-    <%= link_to 'Back', posts_path %>
+      <div class="m-2">
+        <%= link_to("/posts/index") do%>
+            <input type="button" class="btn btn-primary btn-sm w-60" value="back">
+        <% end %>
+      </div>
+
+
   </section>
 </main>
-
-<%= render 'footer' %>

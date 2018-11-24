@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   # before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user
   # GET /posts
   # GET /posts.json
   def index
 
-    @posts = Post.all
+    # @posts = Post.order(_id: :asc)
     logger.debug("@posts=" + @posts.inspect)
     #date値取得
     # @date = lambda{
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @posts = Post.all
+    @posts = Post.order(_id: :desc)
     logger.debug("@posts=" + @posts.inspect)
     render("/posts/index")
   end
@@ -93,11 +93,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @post = Post.find_by(id: params[:id])
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "削除しました"
+    redirect_to("/posts/index")    
   end
   # private
     # Use callbacks to share common setup or constraints between actions.
