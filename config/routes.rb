@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   get "/posts/:id/edit" => "posts#edit"
   post "/posts/:id/update" => "posts#update"
   post "/posts/:id/destroy" => "posts#destroy"
-  
+
+  # likeしたときのルーティング
+  post "/like/:id/create" => "like#create"
+  post "/like/:id/destroy" => "like#destroy"
+
   # user系
   post "/user/login" => "user#userLogin"
   post "/user/logout" => "user#userLogout"

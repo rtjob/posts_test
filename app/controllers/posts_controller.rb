@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   # before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user
+    before_action :authenticate_user, only: [:edit, :update, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -35,7 +36,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     # フォームから送信されたデータを受け取り、保存する
-    @post = Post.new(subject: params[:createSubject], contents: params[:createContents])
+    @post = Post.new(subject: params[:createSubject],
+       contents: params[:createContents],
+       user_id: @current_user.id)
     #rootページにredirect
     if @post.save
       flash[:notice] = "更新しました"
@@ -98,6 +101,15 @@ class PostsController < ApplicationController
     flash[:notice] = "削除しました"
     redirect_to("/posts/index")    
   end
+
+  def ensure_correct_user
+    @posts = Post.find_by(id: params[:id])
+    if @posts.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    end
+
+  end
   # private
     # Use callbacks to share common setup or constraints between actions.
     # def set_post
@@ -109,5 +121,6 @@ class PostsController < ApplicationController
     #  params.require(:post).permit(:contents)
     # end
     #def update_date
-    #end
+    #endｖ
+  
 end

@@ -1,41 +1,58 @@
 <main>
-      <section class="bg-light text-center py-5">
-        <div class="container">
+      <section class="bg-orange text-center">
+        <div class="bg-orange container">
           <% if @errorMessage %>
-            <p class="bg-orange text-danger">
+            <p class="text-danger">
               <%= @errorMessage %>
             </p>
           <% end %>
           <div class = "">
             <p id="notice"><%= notice %></p>
           </div>
+        </div>
+      </section>
+      <section class="bg-light text-center py-1 mx-1">
           <div class="mb-5 row">
             <!--colを12分割で分ける-->
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <h3>input zone</h3>
                 <%= form_tag("/posts/create")do %>
-                   <input type="input" class="px-2 mb-2 w-100" name="createSubject" value="SubjectSubject">
-                   <textarea rows ="5" class="px-2 w-100" name="createContents">inputinputinputinputinputinput
-                   </textarea>
-                  <div class= "text-right">
+                    <h5 class="text-left px-2">題名</h5>
+                    <input type="input" class="px-2 mb-2 w-100" name="createSubject" value="SubjectSubject">
+                    <h5 class="text-left px-2">本文</h5>
+                    <textarea rows ="5" class="px-2 w-100" name="createContents">inputinputinputinputinputinput
+                    </textarea>
+                    <div class= "text-right">
                    <input type="submit" class="btn btn-success btn-sm w-60" value="投稿">
                   </div>
                 <% end %>
             </div>
-            <div class="col-sm-8">
+            <div class="col-md-8">
               <h3>output zone</h3>
               <% @posts.each do |posts| %>
               <div class="row">
-                  <div class = "col-sm-8 text-left">
-                    <h5><%= posts.subject %></h5>
-                  </div>
-                  <div class = "col-sm-3 text-right">
-                    <% if posts.updated_at.nil? %>
-                      <%= posts.created_at.strftime("%Y年%m月%d日")%>
-                    <% else %>
-                      <%= posts.updated_at.strftime("%Y年%m月%d日") %>
-                    <% end %>
-                  </div>
+                <div class = "">
+                  <%= link_to("/user/#{posts.user.id}")do %>
+                   <img class="img-fluid img-thumbnail" width="60px" height="120px" src="<%= "/user_images/#{posts.user.userImage}" %>">
+                  <% end %>
+                </div>
+                <div class = "">
+                  <%= link_to("/user/#{posts.user.id}")do%>
+                    <span class="h5"><%= posts.user.name %></span>
+                  <% end %>
+                </div>
+              </div>
+              <div class="row">
+                <div class = "col-sm-8 text-left">
+                  <h5><%= posts.subject %></h5>
+                </div>
+                <div class = "col-sm-3 text-right">
+                  <% if posts.updated_at.nil? %>
+                    <%= posts.created_at.strftime("%Y年%m月%d日")%>
+                  <% else %>
+                    <%= posts.updated_at.strftime("%Y年%m月%d日") %>
+                  <% end %>
+                </div>
               </div>
                 <div class = "shadow-sm p-1 mb-2 text-justify bg-white rounded">
                   <div class = "row-md-3">
@@ -46,11 +63,17 @@
                     </p>
                   </div>
                   <div class = "row-md-1 text-right">
+                    <% if Like.find_by(user_id: @current_user.id,post_id: posts.id)%>
+                      <%= link_to("どうでもいいね済み","/like/#{posts.id}/destroy",{method:"post"})%>
+                    <% else %>
+                      <%= link_to("どうでもいいね","/like/#{posts.id}/create",{method:"post"})%>
+                    <% end %>
                     <% if posts.updated_at.nil? %>
                       <%= posts.created_at.strftime("%H:%M")%>
                     <% else %>
                       <%= posts.updated_at.strftime("%H:%M")%>
                     <% end %>
+                    <% if posts.user.id == @current_user.id %>
                       <%= link_to("/posts/#{posts.id}/edit") do%>
                         <input type="submit" class="btn btn-primary btn-sm w-60" value="編集">
                       <% end %>
@@ -60,6 +83,8 @@
                         <% end %>
                       -->
                       <%= link_to '削除', posts, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+
                   </div>
                 </div>
 
