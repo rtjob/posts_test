@@ -69,6 +69,9 @@ gem 'mini_magick'
 gem 'ruby-debug-ide'
 gem 'debase'
 
+# パスワード暗号化Gem
+gem 'bcrypt', '~> 3.1.11'
+
 group :development, :test, :production do
   gem 'mongoid', '~> 6.0.0.rc0' #do ~ end内部に追加。他のgemは残してください。
 end

@@ -1,13 +1,16 @@
 class UserController < ApplicationController
-    before_action :authenticate_user,{only:[:userList,:userDetail,:userEdit,:userUpdate,:userDestroy]}
+    before_action :authenticate_user,{only:[:userDetail,:userEdit,:userUpdate,:userDestroy]}
 
     before_action :forbit_loginUser,{only:[:userSignUp,:userCreate,:userLogin]}
 
+    before_action :authenticate_root_user,{only:[:userList]}  
+
     before_action :ensure_correct_user,{only:[:userEdit,:userUpdate,:userDestroy]}
+
     def userList
-        @users = User.all
+        @allUsers = User.all
         logger.debug("@user=" + @users.inspect)
-        @users.each do |user|
+        @allUsers.each do |user|
             logger.debug("user.name=" + user.name.inspect)
         end
     end
@@ -35,8 +38,9 @@ class UserController < ApplicationController
     end
 
     def userLogin
-        @user = User.find_by(name: params[:name], password: params[:password])
-        if @user
+        # @user = User.find_by(name: params[:name], password: params[:password])
+        @user = User.find_by(name: params[:name])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
 
             flash[:notice] = "ログインしました"
@@ -83,14 +87,32 @@ class UserController < ApplicationController
         end
     end
 
-    def userDestroy
-        @user = User.find_by(id: params[:id])   
-        if @user.destroy
-            flash[:notice] = "削除しました"
+    def userDestroyFromUserList
+        @user = User.find_by(id: params[:id])
+        @post = Post.find_by(user_id: params[:id])
+        if @user.destroy && @post.destroy
+            flash[:notice] = "ユーザー情報を削除しました"
             redirect_to("/user/userList")            
         else
             render("/user/userList")        
         end
+    end
+
+    def userDestroy
+        @user = User.find_by(id: params[:id])
+        @post = Post.find_by(user_id: params[:id])
+        if @user.destroy && @post.destroy
+            flash[:notice] = "ユーザー情報を削除しました"
+            @current_user.id = nil
+            redirect_to("/indexTop")            
+        else
+            render("/user/#{@user.id}/userEdit")        
+        end
+    end
+
+    def like
+        @user = User.find_by(id: params[:id])
+        @likes = Like.where(user_id: @user.toString())
     end
 
     def ensure_correct_user

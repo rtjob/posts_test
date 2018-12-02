@@ -1,69 +1,111 @@
 <main>
-    <section class="bg-orange text-center py-5">
-        <p class ="">
-            <%=flash[:notice]  %>
-        </p>
+    <section>
+        <% if flash[:notice] %>
+        <div class="text-center alert-success">
+            <%= flash[:notice] %>
+        </div>
+        <% end %>
     </section>
-    <section class="bg-light text-center py-5">
-        <h3 class="">ユーザー詳細</h3>
-                <div class ="text-center mb-2 rounded shadow-sm">
-                    <img class = "" src = "<%= "/user_images/#{@users.userImage}" %>">
-                    <p class = "">
-                        ユーザ名:
-                        <%= @users.name%>
-                        <br>
-                        メール:
-                        <%= @users.email%>
-                    </p>
-                    <div class ="text-center">
-                         <div class="btn-group"  role="group">
-                            <% if @users.id == @current_user.id %>
-                                <%= form_tag("/user/#{ @users.id}/userEdit") do %>
-                                    <input type="submit" class="btn btn-primary btn-sm w-60 m-md-3" value="ユーザ編集">
-                                <% end %>
-                                <%= form_tag("/user/#{ @users.id}/userDestroy") do %>
-                                    <input type="submit" class="btn btn-danger btn-sm w-60 m-md-3" value="ユーザ削除">
-                                <% end %>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <% @users.posts.each do |post| %>
-                    <%= link_to("/posts/#{post.id}/edit") do%>
-                        <div class = "shadow-sm p-1 text-center bg-white rounded w-5 mx-5">
-                            <div class="row center-block">
-                                <div class = "col-sm-8 text-left">
-                                    <h5><%= post.subject %></h5>
-                                </div>
-                                <div class = "col-sm-3 text-right">
-                                    <% if post.updated_at.nil? %>
-                                        <%= post.created_at.strftime("%Y年%m月%d日")%>
-                                    <% else %>
-                                        <%= post.updated_at.strftime("%Y年%m月%d日") %>
-                                    <% end %>
-                                </div> 
-                            </div>
-                            <div class = "row-md-3">
-                            </div>
-                            <div class = "row-md-8">
-                                <p class = "text-left contents-size">
-                                    <%= post.contents %>
-                                </p>
-                            </div>
-                            <div class = "row-md-1 text-right">
-                                <% if post.updated_at.nil? %>
-                                    <%= post.created_at.strftime("%H:%M")%>
-                                <% else %>
-                                    <%= post.updated_at.strftime("%H:%M")%>
-                                <% end %>
-                                <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end %>
-                <%= link_to("userListへ", "/user/userList") %>
+    <section class="bg-light text-center">
+        <h3 class="py-1">ユーザー詳細</h3>
+        <div class="text-center mb-2 rounded shadow-sm">
+            <img class="" src="<%= "/user_images/#{@users.userImage}" %>">
+            <p class="">
+                ユーザ名:
+                <%= @users.name%>
                 <br>
-                <%= link_to("投稿一覧へ", "/posts/index") %>
+                メール:
+                <%= @users.email%>
+            </p>
+            <div class="text-center">
+                <div class="btn-group" role="groupÏ">
+                    <% if @users.id == @current_user.id %>
+                    <%= form_tag("/user/#{ @users.id}/userEdit") do %>
+                    <input type="submit" class="btn btn-primary btn-sm w-60 m-md-3" value="ユーザ編集">
+                    <% end %>
+                    <%= form_tag("/user/#{ @users.id}/userDestroy") do %>
+                    <input type="submit" class="btn btn-danger btn-sm w-60 m-md-3" value="ユーザ削除">
+                    <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% @users.posts.each do |post| %>
+        <%= link_to("/posts/#{post.id}/edit") do%>
+        <div class="shadow-sm p-1 text-center bg-white rounded w-5 mx-5">
+            <div class="row center-block">
+                <div class="col-sm-8 text-left">
+                    <h5>
+                        <%= post.subject %>
+                    </h5>
+                </div>
+                <div class="col-sm-3 text-right">
+                    <% if post.updated_at.nil? %>
+                    <%= post.created_at.strftime("%Y年%m月%d日")%>
+                    <% else %>
+                    <%= post.updated_at.strftime("%Y年%m月%d日") %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row-md-3">
+            </div>
+            <div class="row-md-8">
+                <p class="text-left contents-size">
+                    <%= post.contents %>
+                </p>
+            </div>
+            <div class="row-md-1 text-right">
+                <% if post.updated_at.nil? %>
+                <%= post.created_at.strftime("%H:%M")%>
+                <% else %>
+                <%= post.updated_at.strftime("%H:%M")%>
+                <% end %>
+                <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
+            </div>
+        </div>
+        <% end %>
+        <% end %>
+        <% if @likes %>
+        <% @likes.each do |like| %>
+        <% post=Post.find_by(id: like.post_id) %>
+        <div class="shadow-sm p-1 text-center bg-white rounded w-5 mx-5">
+            <div class="row center-block">
+                <div class="col-sm-8 text-left">
+                    <h5>
+                        <%= post.subject %>
+                    </h5>
+                </div>
+                <div class="col-sm-3 text-right">
+                    <% if post.updated_at.nil? %>
+                    <%= post.created_at.strftime("%Y年%m月%d日")%>
+                    <% else %>
+                    <%= post.updated_at.strftime("%Y年%m月%d日") %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row-md-3">
+            </div>
+            <div class="row-md-8">
+                <p class="text-left contents-size">
+                    <%= post.contents %>
+                </p>
+            </div>
+            <div class="row-md-1 text-right">
+                <% if post.updated_at.nil? %>
+                <%= post.created_at.strftime("%H:%M")%>
+                <% else %>
+                <%= post.updated_at.strftime("%H:%M")%>
+                <% end %>
+                <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
+            </div>
+        </div>
+        <% end %>
+
+        <% end %>
+        <% if @users.name == "root" %>
+        <%= link_to("userListへ", "/user/userList") %>
+        <% end %>
+        <br>
+        <%= link_to("投稿一覧へ", "/posts/index") %>
     </section>
 </main>
-

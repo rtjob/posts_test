@@ -1,21 +1,21 @@
 <main>
-    <section class="text-center py-5">
-         <div class="bg-orange">
-            <% @user.errors.full_messages.each do |message| %>
-                <div class="bg-orange text-danger">
-                    <%= message %>
-                </div>
-            <% end %>
-        </div>
-        <h4 class="">ユーザー登録</h4>  
+    <section>
+        <% @user.errors.full_messages.each do |message| %>
+            <div class="text-center alert-danger">
+                <%= message %>
+            </div>
+        <% end %>
+    </section>
+    <section>
         <div class ="text-center rounded shadow-sm bg-light">
+            <h4 class="py-1">ユーザー登録</h4>  
             <%= form_tag("/user/create") do%>
                     <p class ="mb-1">名前</p>
                     <input class="mb-3" name = "name">
                     <p class ="mb-1">Eメール</p>
                     <input class="mb-3" name = "email">
                     <p class ="mb-1">パスワード</p>
-                    <input class="mb-3" name = "password">
+                    <input type="password" class="mb-3" name = "password">
                     <div class= "ml-auto p-2">
                         <input type="submit" class="btn btn-primary btn-sm w-60" value="登録">
                      </div>

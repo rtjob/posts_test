@@ -1,15 +1,15 @@
 <main>
-      <section class="bg-orange text-center">
-        <div class="bg-orange container">
+      <section>
           <% if @errorMessage %>
-            <p class="text-danger">
+            <div class="text-center alert-danger">
               <%= @errorMessage %>
-            </p>
+            </div>
           <% end %>
-          <div class = "">
-            <p id="notice"><%= notice %></p>
-          </div>
-        </div>
+          <% if notice %>
+            <div class = "text-center alert-success">
+              <%= notice %>
+            </div>
+          <% end %>
       </section>
       <section class="bg-light text-center py-1 mx-1">
           <div class="mb-5 row">
@@ -63,10 +63,15 @@
                     </p>
                   </div>
                   <div class = "row-md-1 text-right">
+                    <%#= @likes_count %>
                     <% if Like.find_by(user_id: @current_user.id,post_id: posts.id)%>
-                      <%= link_to("どうでもいいね済み","/like/#{posts.id}/destroy",{method:"post"})%>
+                      <%= link_to("/like/#{posts.id}/destroy",{method:"post"})do %>
+                          <img class="img-responsive" src="<%= "/app_image/do_aft.png" %>">
+                      <% end %>
                     <% else %>
-                      <%= link_to("どうでもいいね","/like/#{posts.id}/create",{method:"post"})%>
+                      <%= link_to("/like/#{posts.id}/create",{method:"post"})do %>
+                        <img class="img-responsive" src="<%= "/app_image/do_bef.png" %>">
+                      <% end %>
                     <% end %>
                     <% if posts.updated_at.nil? %>
                       <%= posts.created_at.strftime("%H:%M")%>

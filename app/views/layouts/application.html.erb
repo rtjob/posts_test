@@ -29,12 +29,12 @@
                  data-targetでレスポンスナビの中身指定
             -->
             <% if @current_user %>
-             <%= link_to("/")do%>
-                <span class="navbar-brand">トップ画面</span>
-              <% end %>
-            <% else %>
               <%= link_to("/posts/index")do%>
                 <span class="navbar-brand">一覧画面</span>
+              <% end %>
+            <% else %>
+               <%= link_to("/")do%>
+                  <span class="navbar-brand">トップ画面</span>
               <% end %>
             <% end %>
 
@@ -48,11 +48,10 @@
                   TODO Rootのみユーザ一覧を出すようにする
                  -->
                 <% if @current_user %>
-                  <%= link_to("/posts/index")do %>
-                    <li class="nav-item nav-link">投稿一覧</li>
-                  <% end %>
-                  <%= link_to("/user/userList")do %>
-                    <li class="nav-item nav-link">ユーザ一覧</li>
+                  <% if @current_user.name == "root" %>
+                    <%= link_to("/user/userList")do %>
+                      <li class="nav-item nav-link">ユーザ一覧</li>
+                    <% end %>
                   <% end %>
                    <li class="nav-item"><a href="" class="nav-link">Link</a></li>
                    <li class="nav-item"><a href="" class="nav-link">Link</a></li>
