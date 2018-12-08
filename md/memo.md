@@ -184,6 +184,15 @@ File.binwriteで指定場所に書き込みできる
 rails generate controller コントローラ名
 '''
 
+## heroku logみる
+heroku logs -t
+
+## heroku　configみる
+heroku config
 
 
+## heroku 環境　mongoDB読む
+mongo ds037977.mlab.com:37977/heroku_9v5bk0vx -u heroku_9v5bk0vx -p 8sqkanmmqjtjqojfk7828ukr4v
 
+## VSCODE でデバック
+bundle exec rdebug-ide --host 127.0.0.1 --port 1234 --dispatcher-port 26162 -- bin/rails s

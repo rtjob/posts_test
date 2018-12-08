@@ -27,7 +27,7 @@ class User
   # validates :password,{presence: true}
 
   # password_digestカラムに関するバリデーション
-  validates :password_digest,{presence: true}
+  # validates :password_digest,{presence: true}
   
   def posts
     return  Post.where(user_id: self.id)
