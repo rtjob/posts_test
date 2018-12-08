@@ -142,10 +142,10 @@ test:
           mode: :primary
         max_pool_size: 1
 
-# production:
-#  clients:
-#    default:
-#     uri: mongodb://heroku_2tjnzvqv:mul2r21svhj7g6e7tupdutbjv0@ds159772.mlab.com:59772/heroku_2tjnzvqv
-#     options:
-#       connect_timeout: 15
+production:
+ clients:
+   default:
+    uri: mongodb://heroku_9v5bk0vx:8sqkanmmqjtjqojfk7828ukr4v@ds037977.mlab.com:37977/heroku_9v5bk0vx
+    options:
+      connect_timeout: 15
 
