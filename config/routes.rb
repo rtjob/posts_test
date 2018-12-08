@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/posts/index" => "posts#index"
   get "/posts/:id/edit" => "posts#edit"
   post "/posts/:id/update" => "posts#update"
+  get "/posts/:id/destroy" => "posts#destroy"
   post "/posts/:id/destroy" => "posts#destroy"
 
   # likeしたときのルーティング
