@@ -33,9 +33,7 @@
               <div class="row">
                 <div class = "">
                   <%= link_to("/user/#{posts.user.id}")do %>
-                   <!--
                    <img class="img-fluid img-thumbnail" width="60px" height="120px" src="<%= "/user_images/#{posts.user.userImage}" %>">
-                   -->
                   <% end %>
                 </div>
                 <div class = "">
@@ -89,7 +87,9 @@
                           <input type="submit" class="btn btn-danger btn-sm w-60" value="削除">
                         <% end %>
                       -->
-                      <%= link_to '削除', posts, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
+                      <%= link_to("/posts/#{posts.id}/destroy") do%>
+                          <input type="submit" class="tn btn-danger btn-sm w-60" value="削除">
+                      <% end %>
                     <% end %>
 
                   </div>
