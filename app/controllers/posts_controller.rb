@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 
     @posts = Post.order(_id: :desc)
     logger.debug("@posts=" + @posts.inspect)
-    @likes_count = Like.where(post_id: @posts).count
-    logger.debug("@likes_count=" + @likes_count.inspect)
+    # @likes_count = Like.where(post_id: @posts).count
+    # logger.debug("@likes_count=" + @likes_count.inspect)
     # logger.debug("@posts=" + @posts.inspect)
     #date値取得
     # @date = lambda{
