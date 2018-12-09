@@ -148,4 +148,5 @@ production:
     uri: mongodb://heroku_9v5bk0vx:8sqkanmmqjtjqojfk7828ukr4v@ds037977.mlab.com:37977/heroku_9v5bk0vx
     options:
       connect_timeout: 15
+      raise_not_found_error: false
 
