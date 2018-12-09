@@ -60,7 +60,12 @@
                 <% else %>
                 <%= post.updated_at.strftime("%H:%M")%>
                 <% end %>
-                <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
+                <%= link_to("/posts/#{post.id}/edit") do%>
+                    <input type="submit" class="btn btn-primary btn-sm w-60" value="編集">
+                <% end %>
+                <%= link_to("/posts/#{post.id}/destroy") do%>
+                    <input type="submit" class="tn btn-danger btn-sm w-60" value="削除">
+                <% end %>
             </div>
         </div>
         <% end %>
@@ -96,7 +101,6 @@
                 <% else %>
                 <%= post.updated_at.strftime("%H:%M")%>
                 <% end %>
-                <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm w-60',data: { confirm: 'Are you sure?' } %>
             </div>
         </div>
         <% end %>
