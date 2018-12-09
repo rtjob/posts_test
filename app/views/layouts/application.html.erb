@@ -48,7 +48,7 @@
                   TODO Rootのみユーザ一覧を出すようにする
                  -->
                 <% if @current_user %>
-                  <% if @current_user.name == "root" %>
+                  <% if @current_user.name == "管理人" %>
                     <%= link_to("/user/userList")do %>
                       <li class="nav-item nav-link">ユーザ一覧</li>
                     <% end %>

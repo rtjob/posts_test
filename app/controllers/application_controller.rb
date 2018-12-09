@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate_root_user
-        if @current_user.name != "root"
+        if @current_user.name != "管理人"
             flash[:notice]="管理者のみアクセスできます"
             if @current_user
                 redirect_to("/posts/index")
