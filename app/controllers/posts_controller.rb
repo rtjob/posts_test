@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   def show
     @posts = Post.order(_id: :desc)
     logger.debug("@posts=" + @posts.inspect)
-    @likes_count = Like.where(post_id: @posts).count
+    # @likes_count = Like.where(post_id: @posts).count
     # logger.debug("@likes_count=" + @likes_count.inspect)
     render("/posts/index")
   end
