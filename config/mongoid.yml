@@ -149,4 +149,6 @@ production:
     options:
       connect_timeout: 15
       raise_not_found_error: false
+ options:
+    raise_not_found_error: false
 
