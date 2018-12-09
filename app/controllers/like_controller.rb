@@ -4,7 +4,7 @@ class LikeController < ApplicationController
 
   def create
     @like = Like.new(
-     user_id: @current_user.id
+     user_id: @current_user.id,
      post_id: params[:id]
     )
     @like.save
@@ -14,7 +14,7 @@ class LikeController < ApplicationController
 
   def destroy
     @like = Like.find_by(
-     user_id: @current_user.id
+     user_id: @current_user.id,
      post_id: params[:id]
     )
     @like.destroy
