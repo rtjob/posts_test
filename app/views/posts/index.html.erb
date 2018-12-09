@@ -68,10 +68,10 @@
                       <%#= link_to("/like/#{posts.id}/destroy",{method:"post"})do %>
                         <!-- <img class="img-responsive" src="<%= "/app_image/do_aft.png" %>">  -->
                       <%# end %>
-                    <% else %>
-                      <%= link_to("/like/#{posts.id}/create",{method:"post"})do %>
+                    <%# else %>
+                      <%#= link_to("/like/#{posts.id}/create",{method:"post"})do %>
                         <img class="img-responsive" src="<%= "/app_image/do_bef.png" %>">
-                      <% end %>
+                      <%# end %>
                     <% end %>
                     <% if posts.updated_at.nil? %>
                       <%= posts.created_at.strftime("%H:%M")%>
