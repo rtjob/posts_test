@@ -64,15 +64,15 @@
                   </div>
                   <div class = "row-md-1 text-right">
                     <%= @likes_count %>
-                    <%# if Like.find_by(user_id: @current_user.id,post_id: posts.id)%>
+                    <% if Like.find_by(user_id: @current_user.id,post_id: posts.id)%>
                       <%#= link_to("/like/#{posts.id}/destroy",{method:"post"})do %>
                         <!-- <img class="img-responsive" src="<%= "/app_image/do_aft.png" %>">  -->
                       <%# end %>
-                    <%# else %>
+                    <% else %>
                       <%#= link_to("/like/#{posts.id}/create",{method:"post"})do %>
 <!-- <img class="img-responsive" src="<%= "/app_image/do_bef.png" %>">  -->
                       <%# end %>
-                    <%# end %>
+                    <% end %>
                     <% if posts.updated_at.nil? %>
                       <%= posts.created_at.strftime("%H:%M")%>
                     <% else %>
