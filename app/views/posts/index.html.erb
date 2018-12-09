@@ -63,8 +63,8 @@
                     </p>
                   </div>
                   <div class = "row-md-1 text-right">
-                    <%= @likes_count %>
-                    <% if Like.find_by(user_id: @current_user.id,post_id: posts.id)%>
+                    <%= posts.likeCount %>
+                    <% if posts.like(@current_user.id) %>
                       <%= link_to("/like/#{posts.id}/destroy",{method:"post"})do %>
                         <img class="img-responsive" src="<%= "/app_image/do_aft.png" %>">
                       <% end %>

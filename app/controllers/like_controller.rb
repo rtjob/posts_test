@@ -17,7 +17,11 @@ class LikeController < ApplicationController
      user_id: @current_user.id,
      post_id: params[:id]
     )
-    @like.destroy
+    if @like.destroy
+
+    else
+      flash[:notice] = "destroyできなかった"
+    end
     redirect_to("/posts/index")
   end
 end
