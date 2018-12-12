@@ -117,7 +117,7 @@ class UserController < ApplicationController
 
     def ensure_correct_user
         # BSON::ObjectId.from_string(params[:id]) string→BSON:ObjectID
-        if @current_user.id != BSON::ObjectId.from_string(params[:id])
+        if @current_user.id != BSON::ObjectId.from_string(params[:id]) && @current_user.name != "管理人"
             flash[:notice] = "権限がありません"
             redirect_to("/posts/index")
         end
