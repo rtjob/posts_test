@@ -15,7 +15,7 @@
           <div class="mb-5 row">
             <!--colを12分割で分ける-->
             <div class="col-md-4">
-                <h3>input zone</h3>
+                <p>入力欄</p>
                 <%= form_tag("/posts/create")do %>
                     <h5 class="text-left px-2">題名</h5>
                     <input type="input" class="px-2 mb-2 w-100" name="createSubject" value="SubjectSubject">
@@ -28,7 +28,7 @@
                 <% end %>
             </div>
             <div class="col-md-8">
-              <h3>output zone</h3>
+              <p>出力</p>
               <% @posts.each do |posts| %>
               <div class="row">
                 <div class = "">

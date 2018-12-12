@@ -13,7 +13,7 @@
     </section>
     <section class="text-center">
         <div class="text-center mb-2 rounded shadow-sm bg-light">
-            <h4 class="">Top</h4>
+            <h2 class="">ログイン</h2>
             <%= form_tag("/user/login") do%>
             <p class="">ユーザ名</p>
             <input class="w-150" name="name" value="<%= @name%>">
@@ -25,6 +25,7 @@
             <% end %>
         </div>
         <div class="ml-auto p-2">
+            <p class="h6 text-danger">①ユーザ登録がまだの場合はこちら</p>
             <%= link_to("/user/signup") do %>
                 <input type="submit" class="btn btn-success btn-sm w-60" value="ユーザ登録">
             <% end %>
