@@ -19,19 +19,21 @@
             </p>
             <div class="text-center">
                 <div class="btn-group" role="groupÏ">
-                    <% if @users.id == @current_user.id %>
+                    <% if @users.id == @current_user.id ||(@current_user.name == "管理人")%>
                     <%= form_tag("/user/#{ @users.id}/userEdit") do %>
                     <input type="submit" class="btn btn-primary btn-sm w-60 m-md-3" value="ユーザ編集">
                     <% end %>
+                    <% if @users.name != "管理人"%>
                     <%= form_tag("/user/#{ @users.id}/userDestroy") do %>
                     <input type="submit" class="btn btn-danger btn-sm w-60 m-md-3" value="ユーザ削除">
+                    <% end %>
                     <% end %>
                     <% end %>
                 </div>
             </div>
         </div>
         <% @users.posts.each do |post| %>
-        <%= link_to("/posts/#{post.id}/edit") do%>
+
         <div class="shadow-sm p-1 text-center bg-white rounded w-5 mx-5">
             <div class="row center-block">
                 <div class="col-sm-8 text-left">
@@ -60,15 +62,18 @@
                 <% else %>
                 <%= post.updated_at.strftime("%H:%M")%>
                 <% end %>
-                <%= link_to("/posts/#{post.id}/edit") do%>
-                    <input type="submit" class="btn btn-primary btn-sm w-60" value="編集">
-                <% end %>
-                <%= link_to("/posts/#{post.id}/destroy") do%>
-                    <input type="submit" class="tn btn-danger btn-sm w-60" value="削除">
+                <% if (post.user.id == @current_user.id )||(@current_user.name == "管理人")%>
+                    <%= link_to("/posts/#{post.id}/edit") do%>
+                        <input type="submit" class="btn btn-primary btn-sm w-60" value="編集">
+                    <% end %>
+                    
+                    <%= link_to("/posts/#{post.id}/destroy") do%>
+                        <input type="submit" class="tn btn-danger btn-sm w-60" value="削除">
+                    <% end %>
                 <% end %>
             </div>
         </div>
-        <% end %>
+
         <% end %>
         <% if @likes %>
         <% @likes.each do |like| %>
@@ -90,7 +95,7 @@
             </div>
             <div class="row-md-3">
             </div>
-            <div class="row-md-8">
+            <div class="row-md-7">
                 <p class="text-left contents-size">
                     <%= post.contents %>
                 </p>
@@ -102,11 +107,22 @@
                 <%= post.updated_at.strftime("%H:%M")%>
                 <% end %>
             </div>
+            <div class="row-md-1 text-right">
+                <p class="">
+                    どうでもいいね数:
+                    <%= post.likeCount %>
+                </p>
+                <% if post.like(@current_user.id)%>
+                <%= link_to("/like/#{post.id}/destroy",{method:"post"})do %>
+                <input type="submit" class="tn btn-danger btn-sm w-60" value="削除">
+                <% end %>
+                <% end %>
+            </div>
         </div>
         <% end %>
 
         <% end %>
-        <% if @users.name == "管理人" %>
+        <% if @current_user.name == "管理人" %>
         <%= link_to("userListへ", "/user/userList") %>
         <% end %>
         <br>
