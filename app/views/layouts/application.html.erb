@@ -40,13 +40,13 @@
             ユーザ情報:
             <%= @current_user.name %>さん</li>
           <% end %>
-          <%= link_to("/user/logout" , {method: :post})do %>
-          <li class="nav-item nav-link">ログアウト</li>
-          <% end %>
           <% if @current_user.name == "管理人" %>
           <%= link_to("/user/userList")do %>
           <li class="nav-item nav-link">ユーザ一覧<span class="sr-only">(現位置)</span></li>
           <% end %>
+          <% end %>
+          <%= link_to("/user/logout" , {method: :post})do %>
+          <li class="nav-item nav-link">ログアウト</li>
           <% end %>
           <% else %>
           <%= link_to("/user/signup")do %>
