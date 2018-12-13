@@ -90,7 +90,10 @@ class UserController < ApplicationController
     def userDestroyFromUserList
         @user = User.find_by(id: params[:id])
         @post = Post.find_by(user_id: params[:id])
-        if @user.destroy && @post.destroy
+        if @user.destroy
+            if @post.present?
+                @post.destroy
+            end
             flash[:notice] = "ユーザー情報を削除しました"
             redirect_to("/user/userList")            
         else
@@ -101,7 +104,10 @@ class UserController < ApplicationController
     def userDestroy
         @user = User.find_by(id: params[:id])
         @post = Post.find_by(user_id: params[:id])
-        if @user.destroy && @post.destroy
+        if @user.destroy
+            if @post.present?
+                @post.destroy
+            end
             flash[:notice] = "ユーザー情報を削除しました"
             @current_user.id = nil
             redirect_to("/indexTop")            
