@@ -1,0 +1,106 @@
+<p id="notice"><%= notice %></p>
+
+<header>
+ <!-- <div class="container">
+    <div class="header-left">
+      <img class="logo" src="#">
+    </div>
+    <div class="header-right">
+      <div class="login">ログイン</div>
+    </div>
+  -->
+    <div class="container">
+      <!-- ヘッダのメニュー(ナビバー)指定(navbar-expandも使用する)
+      navbar-lightでグレー委する-->  
+        <nav class="navbar navbar-expand-sm navbar-light">
+          <!--navbar-brand サイズ補正-->
+            <a href="" class="navbar-brand">Logo</a>
+            <!-- navbar-toggleレスポンスナビ
+            PCブラウザの時隠すため data-toggle="collapse"
+            data-targetでレスポンスナビの中身指定
+            -->
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+              <!-- navbar-toggle-iconハンバーガーメニューロゴ -->
+              <span class="navbar-toggle-icon"></span>
+            </button>
+            <div id="menu" class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a href="" class="nav-link">Link</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Link</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Link</a></li>
+              </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main>
+      <section class="bg-light text-center py-5">
+        <div class="container">
+          <div class="mb-5 row">
+            <!--colを12分割で分ける-->
+            <div class="col-sm-4">
+                <h3>input zone</h3>
+                <textarea class="px-2 w-100">inputinputinputinputinputinput</textarea>
+                <div class= "text-right">
+                  <a href="" class="btn btn-primary btn-sm w-60">tweet</a>
+                   
+                </div>
+            </div>
+            <div class="col-sm-8">
+              <h3>output zone</h3>
+              <div class = "text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+              </div>
+
+              <!--
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+              </p>
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+              </p>
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+              </p>
+              <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+                </p>
+                <p class="text-justify shadow-sm p-3 mb-5 bg-white rounded">
+                outputoutputoutputoutputoutputout
+                </p>
+                
+                </div>
+              -->
+            </div>
+    </div>
+  </section>
+</main>
+<footer class="text-center text-muted py-4">
+  Copyright YYYY dot.install
+</footer>
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contents</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.contents %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
