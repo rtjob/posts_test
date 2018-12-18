@@ -19,7 +19,7 @@
 
 .byebug_history
 
-*.md
+/md
 .DS_Store
 *.log
 
