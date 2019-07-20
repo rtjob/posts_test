@@ -63,7 +63,7 @@ gem 'jquery-rails'
 #gem 'mongoid', '~> 6.0.0.rc0'
 
 #画像リサイズ用
-gem 'mini_magick'
+gem 'mini_magick', ">= 4.9.4"
 
 # debug用Gem
 gem 'ruby-debug-ide'
